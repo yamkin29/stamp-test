@@ -1,8 +1,8 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import archiveTabReducer from './reducers/ArchiveTabSlice';
+import orderReducer from './reducers/orderSlice';
 
 const rootReducer = combineReducers({
-    archiveTab: archiveTabReducer,
+    order: orderReducer,
 });
 
 const store = configureStore({
@@ -10,9 +10,5 @@ const store = configureStore({
 });
 
 export type RootState = ReturnType<typeof store.getState>;
-
-export type AppDispatch = typeof store.dispatch;
-
-export type AppState = ReturnType<typeof rootReducer>;
 
 export default store;
