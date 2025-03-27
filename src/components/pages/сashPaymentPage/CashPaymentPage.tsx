@@ -38,6 +38,10 @@ const CashPaymentPage = () => {
         });
     };
 
+    const handleBack = () => {
+        navigate("/");
+    };
+
     return (
         <div className="cash-container">
             <h2 className="cash-title">Оплата наличными</h2>
@@ -50,6 +54,9 @@ const CashPaymentPage = () => {
             </p>
             <button className="cash-finish-button" onClick={handleFinish}>
                 Завершить оплату
+            </button>
+            <button className="cash-back-button" onClick={handleBack}>
+                Вернуться к выбору напитков
             </button>
         </div>
     );

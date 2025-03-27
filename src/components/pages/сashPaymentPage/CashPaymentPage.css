@@ -35,8 +35,23 @@
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-bottom: 20px;
 }
 
 .cash-finish-button:hover {
+    background-color: #ddd;
+}
+
+.cash-back-button {
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cash-back-button:hover {
     background-color: #ddd;
 }
