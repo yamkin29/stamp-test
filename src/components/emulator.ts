@@ -2,12 +2,11 @@ interface Emulator {
     StartCashin: (cb: (amount: number) => void) => void;
     StopCashin: (cb: () => void) => void;
     BankCardPurchase: (
-        amount: number,
         cb: (result: boolean) => void,
         display_cb: (msg: string) => void
     ) => void;
     BankCardCancel: () => void;
-    Vend: (product_idx: number, cb: (result: boolean) => void) => void;
+    Vend: (cb: (result: boolean) => void) => void;
     _cashinHandler?: ((event: KeyboardEvent) => void) | null;
     _bankCardKeyHandler?: ((event: KeyboardEvent) => void) | null | undefined;
     _bankCardCb?: ((result: boolean) => void) | null | undefined;
@@ -37,7 +36,7 @@ const emulator: Emulator = {
         }
         cb();
     },
-    BankCardPurchase: (amount, cb, display_cb) => {
+    BankCardPurchase: (cb, display_cb) => {
         display_cb("Приложите карту");
         setTimeout(() => {
             display_cb("Обработка карты");
@@ -82,18 +81,15 @@ const emulator: Emulator = {
             console.log("Нет активной операции для отмены.");
         }
     },
-    Vend: (product_idx, cb) => {
-        console.log("Начато приготовление напитка с индексом:", product_idx);
+    Vend: (cb) => {
         setTimeout(() => {
             const keyHandler = (event: KeyboardEvent) => {
                 if (event.code === "Digit1") {
                     document.removeEventListener("keydown", keyHandler);
                     cb(true);
-                    console.log("Напиток выдан успешно");
                 } else if (event.code === "Digit2") {
                     document.removeEventListener("keydown", keyHandler);
                     cb(false);
-                    console.log("Ошибка при выдаче напитка");
                 }
             };
             document.addEventListener("keydown", keyHandler);

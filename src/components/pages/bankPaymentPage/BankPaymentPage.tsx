@@ -24,7 +24,7 @@ const BankPaymentPage = () => {
         dispatch(clearBankPaymentMessages());
         dispatch(setTransactionStatus('pending'));
 
-        emulator.BankCardPurchase(coffeePrice, (result: boolean) => {
+        emulator.BankCardPurchase((result: boolean) => {
             dispatch(setTransactionStatus(result ? 'success' : 'failure'));
             if (result) {
                 setTimeout(() => {

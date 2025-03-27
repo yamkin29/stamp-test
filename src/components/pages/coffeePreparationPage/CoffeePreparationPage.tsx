@@ -17,7 +17,7 @@ const CoffeePreparationPage = () => {
     useEffect(() => {
         if (selectedDrink === null) return;
 
-        emulator.Vend(selectedDrink, (result: boolean) => {
+        emulator.Vend((result: boolean) => {
             setStatus(result ? "Ваш кофе готов!" : "Ошибка при выдаче напитка.");
             setTimeout(() => {
                 dispatch(resetOrder());
