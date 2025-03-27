@@ -2,13 +2,14 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import emulator from '../../emulator';
-import {RootState} from "../../../redux/store";
+import { RootState } from '../../../redux/store';
 import {
     addBankPaymentMessage,
     clearBankPaymentMessages,
     setTransactionStatus
-} from "../../../redux/reducers/orderSlice";
-import {coffeeProducts} from "../../products";
+} from '../../../redux/reducers/orderSlice';
+import { coffeeProducts } from '../../products';
+import './BankPaymentPage.css';
 
 const BankPaymentPage = () => {
     const dispatch = useDispatch();
@@ -35,17 +36,28 @@ const BankPaymentPage = () => {
         });
     };
 
+    const handleBack = () => {
+        navigate("/");
+    };
+
     return (
-        <div>
-            <h2>Оплата банковской картой</h2>
-            <p>Цена выбранного кофе: {coffeePrice} руб.</p>
-            <button onClick={handleBankPayment}>Оплатить {coffeePrice} руб.</button>
-            <div>
+        <div className="bank-container">
+            <h2 className="bank-title">Оплата банковской картой</h2>
+            <p className="bank-info">Цена выбранного кофе: {coffeePrice} руб.</p>
+            <button className="bank-payment-button" onClick={handleBankPayment}>
+                Оплатить {coffeePrice} руб.
+            </button>
+            <div className="bank-messages">
                 {bankPaymentMessages.map((msg, index) => (
-                    <p key={index}>{msg}</p>
+                    <p key={index} className="bank-message">{msg}</p>
                 ))}
             </div>
-            {transactionStatus === 'failure' && <p>Платеж не прошёл. Попробуйте ещё раз.</p>}
+            {transactionStatus === 'failure' && (
+                <p className="bank-error">Платеж не прошёл. Попробуйте ещё раз.</p>
+            )}
+            <button className="bank-back-button" onClick={handleBack}>
+                Вернуться к выбору напитков
+            </button>
         </div>
     );
 };

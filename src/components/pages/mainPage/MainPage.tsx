@@ -1,9 +1,9 @@
 import React from 'react';
-import { Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import './MainPage.css';
 import {setSelectedDrink} from "../../../redux/reducers/orderSlice";
+import {coffeeProducts} from "../../products";
 
 const MainPage = () => {
     const navigate = useNavigate();
@@ -16,12 +16,21 @@ const MainPage = () => {
 
     return (
         <div className="main-container">
-            <div className="header-container">
-                <Typography variant="h4">Выбор напитка</Typography>
-            </div>
-            <div className="content-container">
-                <button onClick={() => handleSelectDrink(0)}>Кофе 1</button>
-                <button onClick={() => handleSelectDrink(1)}>Кофе 2</button>
+            <header className="header-container">
+                <h1>Выбор напитка</h1>
+            </header>
+            <div className="grid-container">
+                {coffeeProducts.map((drink) => (
+                    <div
+                        key={drink.id}
+                        className="drink-tile"
+                        onClick={() => handleSelectDrink(drink.id)}
+                    >
+                        <img src={drink.icon} alt={drink.name} className="drink-icon" />
+                        <div className="drink-name">{drink.name}</div>
+                        <div className="drink-price">{drink.price} руб.</div>
+                    </div>
+                ))}
             </div>
         </div>
     );

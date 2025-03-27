@@ -1,0 +1,67 @@
+.bank-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #EFCCB9;
+}
+
+.bank-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.bank-info {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.bank-payment-button {
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.bank-payment-button:hover {
+    background-color: #ddd;
+}
+
+.bank-messages {
+    margin-bottom: 20px;
+}
+
+.bank-message {
+    font-size: 16px;
+    color: #333;
+    margin: 5px 0;
+}
+
+.bank-error {
+    font-size: 16px;
+    color: red;
+    margin-bottom: 20px;
+}
+
+.bank-back-button {
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.bank-back-button:hover {
+    background-color: #ddd;
+}

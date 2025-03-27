@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import emulator from "../../emulator";
 import { coffeeProducts } from "../../products";
-import {RootState} from "../../../redux/store";
-import {addInsertedAmount, setChange} from "../../../redux/reducers/orderSlice";
+import { RootState } from "../../../redux/store";
+import { addInsertedAmount, setChange } from "../../../redux/reducers/orderSlice";
+import "./CashPaymentPage.css";
 
 const CashPaymentPage = () => {
     const dispatch = useDispatch();
@@ -38,17 +39,18 @@ const CashPaymentPage = () => {
     };
 
     return (
-        <div>
-            <h2>Оплата наличными</h2>
-            <p>Цена выбранного кофе: {coffeePrice} руб.</p>
-            <p>Внесено: {insertedAmount} руб.</p>
-            <p>
+        <div className="cash-container">
+            <h2 className="cash-title">Оплата наличными</h2>
+            <p className="cash-info">Цена выбранного кофе: {coffeePrice} руб.</p>
+            <p className="cash-info">Внесено: {insertedAmount} руб.</p>
+            <p className="cash-instructions">
                 Используйте клавиши:
                 <br />
                 1 – 50 руб, 2 – 100 руб, 3 – 200 руб, 4 – 500 руб
             </p>
-            <br />
-            <button onClick={handleFinish}>Завершить оплату</button>
+            <button className="cash-finish-button" onClick={handleFinish}>
+                Завершить оплату
+            </button>
         </div>
     );
 };

@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {useNavigate} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import emulator from '../../emulator';
-import {RootState} from "../../../redux/store";
-import {resetOrder} from "../../../redux/reducers/orderSlice";
+import { RootState } from '../../../redux/store';
+import { resetOrder } from '../../../redux/reducers/orderSlice';
+import "./CoffeePreparationPage.css";
 
 const CoffeePreparationPage = () => {
     const selectedDrink = useSelector((state: RootState) => state.order.selectedDrink);
@@ -25,11 +26,15 @@ const CoffeePreparationPage = () => {
         });
     }, [selectedDrink, dispatch, navigate]);
 
-
     return (
-        <div>
-            <h2>{status}</h2>
-            {paymentMethod === 'cash' && change > 0 && <p>Сдача: {change} руб.</p>}
+        <div className="prep-container">
+            <h2 className="prep-status">{status}</h2>
+            <p className="prep-instructions">
+                Нажмите 1 для успешной выдачи, 2 для неуспешной выдачи
+            </p>
+            {paymentMethod === 'cash' && change > 0 && (
+                <p className="prep-change">Сдача: {change} руб.</p>
+            )}
         </div>
     );
 };
