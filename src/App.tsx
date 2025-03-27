@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import store from "./redux/store";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter  as Router, Route, Routes } from 'react-router-dom';
 import MainPage from "./components/pages/mainPage/MainPage";
 import PayPage from "./components/pages/payPage/PayPage";
 import CashPaymentPage from "./components/pages/сashPaymentPage/CashPaymentPage";
