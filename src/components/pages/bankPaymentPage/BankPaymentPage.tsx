@@ -52,9 +52,11 @@ const BankPaymentPage = () => {
                 Оплатить {coffeePrice} руб.
             </button>
             <div className="bank-messages">
-                {bankPaymentMessages.map((msg, index) => (
-                    <p key={index} className="bank-message">{msg}</p>
-                ))}
+                {bankPaymentMessages.length > 0 && (
+                    <p className="bank-message">
+                        {bankPaymentMessages[bankPaymentMessages.length - 1]}
+                    </p>
+                )}
             </div>
             {transactionStatus === 'failure' && (
                 <p className="bank-error">Платеж не прошёл. Попробуйте ещё раз.</p>
