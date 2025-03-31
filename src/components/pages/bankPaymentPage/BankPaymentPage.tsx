@@ -14,6 +14,7 @@ import './BankPaymentPage.css';
 const BankPaymentPage = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
     const bankPaymentMessages = useSelector((state: RootState) => state.order.bankPaymentMessages);
     const transactionStatus = useSelector((state: RootState) => state.order.transactionStatus);
     const selectedDrink = useSelector((state: RootState) => state.order.selectedDrink);
@@ -37,6 +38,9 @@ const BankPaymentPage = () => {
     };
 
     const handleBack = () => {
+        emulator.BankCardCancel();
+        dispatch(clearBankPaymentMessages());
+        dispatch(setTransactionStatus('idle'));
         navigate("/");
     };
 
